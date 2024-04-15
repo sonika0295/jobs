@@ -48,7 +48,7 @@
                 </div>
 
 
-                <div class="col-md-12 mt-3">
+                <div class="col-md-6 mt-3">
                     <label class="control-label" for="title">Budget:</label>
                     <input type="text" name="budget" class="form-control" placeholder="Budget"
                         value="{{ old('budget') }}" required>
@@ -56,6 +56,27 @@
                     @if ($errors->has('budget'))
                         <span class="error-msg">
                             {{ $errors->first('budget') }}
+                        </span>
+                    @endif
+                </div>
+
+                <div class="col-md-6 mt-3">
+                    <label class="control-label" for="category">Category:</label>
+
+                    <select name="category_id" id="category" class="form-control" required>
+                        <option value="" disabled selected>
+                            All Categories</option>
+                        @foreach ($categories as $category)
+                            <option value="{{ $category->id }}"
+                                {{ old('category_id') == $category->id ? 'selected' : '' }}>
+                                {{ $category->name }}</option>
+                        @endforeach
+                    </select>
+
+
+                    @if ($errors->has('category_id'))
+                        <span class="error-msg">
+                            {{ $errors->first('category_id') }}
                         </span>
                     @endif
                 </div>
