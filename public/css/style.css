@@ -1,0 +1,83 @@
+@import url('../css/Roboto-Font-Family.css');
+
+body {
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.navbar-custom {
+    background-color: #007bff;
+}
+
+.navbar-custom .navbar-brand {
+    color: #fff;
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+.navbar-custom .navbar-nav .nav-link {
+    color: #fff;
+    font-weight: bold;
+}
+
+.dropdown-menu-lang {
+    background-color: #007bff;
+}
+
+.dropdown-menu-lang a {
+    color: #fff;
+}
+
+.container {
+    padding: 20px;
+}
+
+.job-post {
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    padding: 10px;
+}
+
+.job-post p {
+    margin-bottom: 5px;
+}
+
+@media (min-width: 768px) {
+    .search-bar {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .filter-options {
+        margin-top: 20px;
+    }
+}
+
+.pagination-container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.pagination {
+    display: inline-flex;
+}
+
+.pagination li {
+    display: inline;
+    margin: 0 3px;
+}
+
+.pagination li a {
+    color: #007bff;
+    padding: 8px 16px;
+    text-decoration: none;
+    border: 1px solid #007bff;
+    border-radius: 5px;
+}
+
+.pagination li.active a {
+    background-color: #007bff;
+    color: #fff;
+    border-color: #007bff;
+}
