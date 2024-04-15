@@ -29,7 +29,9 @@ Route::controller(HomeController::class)->group(function () {
 
 
 Route::prefix('task')->name('task.')->controller(TaskProviderController::class)->group(function () {
-    Route::get('/', 'index');
-    Route::get('/add',  'addForm')->name('add.form');
-    Route::post('/add',  'store')->name('add.submit');
+    Route::middleware('auth')->group(function () {
+        Route::get('/', 'index');
+        Route::get('/add',  'addForm')->name('add.form');
+        Route::post('/add',  'store')->name('store');
+    });
 });

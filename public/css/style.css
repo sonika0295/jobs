@@ -81,3 +81,28 @@ body {
     color: #fff;
     border-color: #007bff;
 }
+
+
+.logo-container,
+.logo-container a:hover,
+.logo-container a,
+.logo-container a:visited,
+.logo-container a:visited {
+    color: #fff;
+}
+
+.logo-container a {
+    text-decoration: none;
+
+}
+
+.big-font {
+    font-size: 35px;
+    font-weight: bold;
+}
+
+.small-font {
+    font-size: 14px;
+    line-height: 0.9;
+    vertical-align: top;
+}
