@@ -23,7 +23,7 @@
         .small-font {
             font-size: 14px;
             line-height: 0.9;
-            vertical-align: top; 
+            vertical-align: top;
         }
     </style>
     @stack('styles')
@@ -54,9 +54,16 @@
 
             <!-- Language dropdown button -->
             <div class="dropdown order-lg-3">
-                <button class="btn btn-primary">
-                    Post job
-                </button>
+                <a href="{{ route('task.add.form') }}">
+                    <button class="btn btn-primary">
+                        I have a task
+                    </button>
+                </a>
+                <a href="{{ route('task.add.form') }}">
+                    <button class="btn btn-primary">
+                        I want a task
+                    </button>
+                </a>
                 <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton"
                     data-bs-toggle="dropdown" aria-expanded="false">
                     Language
