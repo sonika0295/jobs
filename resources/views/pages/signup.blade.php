@@ -24,6 +24,7 @@
 
             <div class="row mt-3">
 
+
                 <div class="col-md-12 mt-3">
                     <label class="control-label" for="name">Name:</label>
                     <input type="text" name="name" class="form-control" placeholder="Your Name"
@@ -32,6 +33,44 @@
                     @if ($errors->has('name'))
                         <span class="error-msg">
                             {{ $errors->first('name') }}
+                        </span>
+                    @endif
+                </div>
+
+                <div class="col-md-12 mt-3" id="role-container">
+                    <label class="control-label" for="name">Role:</label>
+
+                    <select name="role" id="role" class="form-control" required>
+                        <option value="" disabled selected>
+                            Select Role </option>
+                        <option value="employer" {{ old('role') == 'employer' ? 'selected' : '' }}>
+                            Employer </option>
+                        <option value="freelancer" {{ old('role') == 'freelancer' ? 'selected' : '' }}>
+                            Freelancer </option>
+                    </select>
+
+                    @if ($errors->has('role'))
+                        <span class="error-msg">
+                            {{ $errors->first('role') }}
+                        </span>
+                    @endif
+                </div>
+
+                <div class="col-md-6 mt-3" id="category-container" style="display: none;">
+                    <label class="control-label" for="category">Category:</label>
+
+                    <select name="category_id" id="category" class="form-control">
+                        <option value="" disabled selected>
+                            Select Category</option>
+                        @foreach ($categories as $category)
+                            <option value="{{ $category->id }}" {{ old('category_id') == $category->id ? 'selected' : '' }}>
+                                {{ $category->name }}</option>
+                        @endforeach
+                    </select>
+
+                    @if ($errors->has('category_id'))
+                        <span class="error-msg">
+                            {{ $errors->first('category_id') }}
                         </span>
                     @endif
                 </div>
@@ -151,4 +190,25 @@
             color: red;
         }
     </style>
+@endpush
+
+@push('scripts')
+    <script src="{{ asset('js/jquery-3.7.1.min.js') }}"></script>
+    <script>
+        $(document).ready(function() {
+            function toggleCategoryContainer() {
+                if ($('#role').val() === 'freelancer') {
+                    $('#category-container').show();
+                    $('#role-container').removeClass('col-md-12').addClass('col-md-6');
+                } else {
+                    $('#category-container').hide();
+                    $('#role-container').removeClass('col-md-6').addClass('col-md-12');
+                }
+            }
+
+            $('#role').change(toggleCategoryContainer); // Register the event handler
+
+            toggleCategoryContainer();
+        });
+    </script>
 @endpush

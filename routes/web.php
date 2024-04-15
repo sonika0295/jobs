@@ -12,8 +12,6 @@ Route::get('/clear-cache', function () {
     Artisan::call('config:cache');
     Artisan::call('config:clear');
     Artisan::call('view:cache');
-    // Artisan::call('make:controller TaskProviderController');
-    // Artisan::call('make:controller TaskSeekerController');
 
     return 'Cache cleared, optimized, and .env file refreshed successfully.';
 });
@@ -33,5 +31,13 @@ Route::prefix('task')->name('task.')->controller(TaskProviderController::class)-
         Route::get('/', 'index');
         Route::get('/add',  'addForm')->name('add.form');
         Route::post('/add',  'store')->name('store');
+    });
+});
+
+Route::prefix('employee')->name('employee.')->controller(TaskSeekerController::class)->group(function () {
+    Route::middleware('auth')->group(function () {
+        Route::get('/', 'index');
+        Route::get('/apply',  'applyForm')->name('apply.form');
+        Route::post('/apply',  'store')->name('store');
     });
 });

@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Auth;
 use Exception;
 use App\Models\User;
+use App\Models\Category;
 
 class HomeController extends Controller
 {
@@ -19,7 +20,8 @@ class HomeController extends Controller
 
     public function signup()
     {
-        return view('pages.signup');
+        $categories = Category::whereStatus('1')->get();
+        return view('pages.signup', compact('categories'));
     }
 
 
@@ -38,6 +40,10 @@ class HomeController extends Controller
                 'confirm_password' => 'required|same:password',
                 'phone_number' => 'required|numeric',
                 'address' => 'required|string|max:255',
+                'role' => 'required|in:employer,freelancer',
+                'category_id' => 'required_if:role,freelancer|exists:categories,id',
+            ], [
+                'category_id.required_if' => 'The category field is required.',
             ]);
 
             if ($validator->fails()) {
@@ -51,6 +57,8 @@ class HomeController extends Controller
             $user->password = Hash::make($request->password);
             $user->phone_number = $request->phone_number;
             $user->address = $request->address;
+            $user->role = $request->role;
+            $user->category_id = $request->category_id;
 
             $user->save();
 
