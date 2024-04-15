@@ -20,53 +20,62 @@
     <nav class="navbar navbar-expand-lg navbar-light navbar-custom">
         <div class="container">
             <!-- Navbar brand (text logo) -->
-
-            <div class="logo-container">
-                <a href="{{ route('home') }}">
+            <a class="navbar-brand" href="{{ route('home') }}">
+                <div class="logo-container">
                     <div class="logo">
                         <span class="big-font">Klusmelder</span>
                     </div>
-                </a>
-                <div class="slogan">
-                    <span class="small-font">The place for posting and executing tasks</span>
+                    <div class="slogan">
+                        <span class="small-font">The place for posting and executing tasks</span>
+                    </div>
                 </div>
-            </div>
-
-
-
+            </a>
+    
             <!-- Toggle button for mobile -->
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-
-
-
-            <!-- Language dropdown button -->
-            <div class="dropdown order-lg-3">
-                <a href="{{ route('task.add.form') }}">
-                    <button class="btn btn-primary">
-                        I have a task
-                    </button>
-                </a>
-                <a href="{{ route('employee.apply.form') }}">
-                    <button class="btn btn-primary">
-                        I want a task
-                    </button>
-                </a>
-                <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton"
-                    data-bs-toggle="dropdown" aria-expanded="false">
-                    Language
-                </button>
-                <!-- Language dropdown menu -->
-                <ul class="dropdown-menu dropdown-menu-lang" aria-labelledby="dropdownMenuButton">
-                    <li><a class="dropdown-item" href="#">English</a></li>
-                    <li><a class="dropdown-item" href="#">Dutch</a></li>
-                    <!-- Add more language options as needed -->
+    
+            <!-- Right-aligned items -->
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('task.add.form') }}">I have a task</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('employee.apply.form') }}">I want a task</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="accountDropdownButton" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Account
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="accountDropdownButton">
+                            @guest
+                                <li><a class="dropdown-item" href="{{ route('signup') }}">Signup</a></li>
+                                <li><a class="dropdown-item" href="{{ route('login') }}">Login</a></li>
+                            @else
+                                <li><a class="dropdown-item" href="{{ route('logout') }}">Logout</a></li>
+                            @endguest
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="languageDropdownButton" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Language
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="languageDropdownButton">
+                            <li><a class="dropdown-item" href="#">English</a></li>
+                            <li><a class="dropdown-item" href="#">Dutch</a></li>
+                        </ul>
+                    </li>
                 </ul>
             </div>
         </div>
     </nav>
+    
+
 
     @yield('content')
 

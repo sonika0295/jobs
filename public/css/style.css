@@ -26,8 +26,11 @@ body {
 }
 
 .dropdown-menu-lang a {
+    left: 225px !important;
     color: #fff;
 }
+
+
 
 .container {
     padding: 20px;

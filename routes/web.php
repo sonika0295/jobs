@@ -23,6 +23,7 @@ Route::controller(HomeController::class)->group(function () {
     Route::post('/signup',  'signupSubmit')->name('signup.submit');
     Route::get('/login', 'login')->name('login');
     Route::post('/login', 'loginSubmit')->name('login.submit');
+    Route::get('/logout', 'logout')->name('logout')->middleware('auth');
 });
 
 
