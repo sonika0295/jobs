@@ -10,6 +10,11 @@ use Exception;
 use Illuminate\Support\Str;
 use App\Models\Task;
 use App\Models\Category;
+use App\Models\User;
+use App\Jobs\SendNewJobNotification;
+
+use App\Mail\NewJobNotification;
+use Illuminate\Support\Facades\Mail;
 
 class TaskProviderController extends Controller
 {
@@ -60,6 +65,8 @@ class TaskProviderController extends Controller
             $tbl->description = $request->description;
 
             $tbl->save();
+
+            SendNewJobNotification::dispatch($tbl);
 
 
             return back()->with(['success' => 'Task Added Successfully']);
