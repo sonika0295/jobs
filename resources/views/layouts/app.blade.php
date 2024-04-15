@@ -11,7 +11,20 @@
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <title>Klusmelder</title>
     <style>
+        .logo-container {
+            color: #fff;
+        }
 
+        .big-font {
+            font-size: 35px;
+            font-weight: bold;
+        }
+
+        .small-font {
+            font-size: 14px;
+            line-height: 0.9;
+            vertical-align: top; 
+        }
     </style>
     @stack('styles')
 </head>
@@ -20,7 +33,16 @@
     <nav class="navbar navbar-expand-lg navbar-light navbar-custom">
         <div class="container">
             <!-- Navbar brand (text logo) -->
-            <a class="navbar-brand order-lg-1" href="#">Klusmelder</a>
+            <div class="logo-container">
+                <div class="logo">
+                    <span class="big-font">Klusmelder</span>
+                </div>
+                <div class="slogan">
+                    <span class="small-font">The place for posting and executing tasks</span>
+                </div>
+            </div>
+
+
 
             <!-- Toggle button for mobile -->
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
