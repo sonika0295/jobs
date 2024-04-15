@@ -87,10 +87,6 @@ class HomeController extends Controller
             if (Auth::attempt($credentials)) {
                 $user = Auth::user();
 
-                if (!$user->email_verified_at) {
-                    Auth::logout();
-                    return redirect()->route('login')->with('error', 'Email not verified. Please check your email for verification instructions.');
-                }
 
                 if ($request->has('redirect')) {
                     $request->session()->put('url.intended', $request->input('redirect'));
