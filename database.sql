@@ -259,7 +259,7 @@ CREATE TABLE `users` (
   `password` varchar(255) NOT NULL,
   `phone_number` varchar(200) DEFAULT NULL,
   `address` varchar(200) DEFAULT NULL,
-  `role` enum('freelancer','employer','','') DEFAULT NULL,
+  `role` enum('freelancer','client','','') DEFAULT NULL,
   `category_id` int(11) DEFAULT NULL,
   `remember_token` varchar(100) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
@@ -272,11 +272,11 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `phone_number`, `address`, `role`, `category_id`, `remember_token`, `created_at`, `updated_at`) VALUES
 (1, 'dfsdf', 'admin@gmail.com', NULL, '$2y$12$pTsG3CHe8jjEdeQkOWzsfuXwQwx38hDemW4TQxk0snLQn3LpTfP0u', '2114324345435435435', 'sdsdf', 'freelancer', NULL, NULL, '2024-04-15 06:52:10', '2024-04-15 06:52:10'),
-(2, 'asdfasf', 'sona8821870295@gmail.com', NULL, '$2y$12$MFznBws7xVYX4eW4znmY0.JQtJ6/oDX9ETUqo5N2AuoLFyrazpQaa', '21143243454354', 'asdf', 'employer', NULL, NULL, '2024-04-15 06:52:57', '2024-04-15 06:52:57'),
+(2, 'asdfasf', 'sona8821870295@gmail.com', NULL, '$2y$12$MFznBws7xVYX4eW4znmY0.JQtJ6/oDX9ETUqo5N2AuoLFyrazpQaa', '21143243454354', 'asdf', 'client', NULL, NULL, '2024-04-15 06:52:57', '2024-04-15 06:52:57'),
 (3, 'dfsdf', 'sona88218702956@gmail.com', NULL, '$2y$12$mDtN5ud5ZiURdzUj8wLInukvk20IZOiznuIGRJWX6Inqwse2FEpwi', '2114324345435435435', 'qqqqqq', 'freelancer', NULL, NULL, '2024-04-15 07:06:24', '2024-04-15 07:06:24'),
 (4, 'sonika', 'afdfdmin@gmail.com', NULL, '$2y$12$D54.sc3ydKGpwKgF4KOiluhSswCAdV32ITvCOCi8lUAWw2EAWQvA6', '21143243454354', 'sfsdf', NULL, NULL, NULL, '2024-04-15 09:15:06', '2024-04-15 09:15:06'),
 (5, 'ravita', 'tesasdfasdfter@gmail.com', NULL, '$2y$12$.BbE92HkjQgCYs8b/020G.YJpiO56uQFhYXRVeDMSHXFhLvYzjM2i', '2114324345435435435', 'wqerwer', 'freelancer', NULL, NULL, '2024-04-15 09:16:10', '2024-04-15 09:16:10'),
-(6, 'nisha', 'nisha@gmail.com', NULL, '$2y$12$7i2aRTNRfJ9MnWKbGuTc6eJ3u2wtxwfKj6HqgN1JbrzXkFCzndOR6', '12345678', 'sfsdfdf', 'employer', NULL, NULL, '2024-04-15 09:39:18', '2024-04-15 09:39:18'),
+(6, 'nisha', 'nisha@gmail.com', NULL, '$2y$12$7i2aRTNRfJ9MnWKbGuTc6eJ3u2wtxwfKj6HqgN1JbrzXkFCzndOR6', '12345678', 'sfsdfdf', 'client', NULL, NULL, '2024-04-15 09:39:18', '2024-04-15 09:39:18'),
 (7, 'radhika', 'radhika@gmail.com', NULL, '$2y$12$.OZQeqRyYqyz7DwVfH1Fteck6jzCVmjXfmTVQqDlUZOOKoQbIIKUm', '333333333333', 'asdsad', 'freelancer', 1, NULL, '2024-04-15 09:44:39', '2024-04-15 09:44:39'),
 (8, 'ritu patel', 'sonikakurmi48@gmail.com', NULL, '$2y$12$fMIQnFJY/1Gjqln8PY6mruDFb3Hmvk.ijoErP5oEkBULIdmCEx0LG', '21143243454354', 'sdff', 'freelancer', 3, NULL, '2024-04-15 10:14:43', '2024-04-15 10:14:43'),
 (9, 'sonika kurmi', 'sonikakurmi@gmail.com', NULL, '$2y$12$7PXFPSbrd0f/dAq8BOCr6Om8cLkP9ssbnQceb1NTJ1MX7QEOTZILC', '9632587412', 'bhopal mp', 'freelancer', 3, NULL, '2024-04-15 12:09:14', '2024-04-15 12:09:14');

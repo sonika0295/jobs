@@ -40,7 +40,7 @@ class HomeController extends Controller
                 'confirm_password' => 'required|same:password',
                 'phone_number' => 'required|numeric',
                 'address' => 'required|string|max:255',
-                'role' => 'required|in:employer,freelancer',
+                'role' => 'required|in:client,freelancer',
                 'category_id' => 'required_if:role,freelancer|exists:categories,id',
             ], [
                 'category_id.required_if' => 'The category field is required.',

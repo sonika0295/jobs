@@ -43,8 +43,8 @@
                     <select name="role" id="role" class="form-control" required>
                         <option value="" disabled selected>
                             Select Role </option>
-                        <option value="employer" {{ old('role') == 'employer' ? 'selected' : '' }}>
-                            Employer </option>
+                        <option value="client" {{ old('role') == 'client' ? 'selected' : '' }}>
+                            Client </option>
                         <option value="freelancer" {{ old('role') == 'freelancer' ? 'selected' : '' }}>
                             Freelancer </option>
                     </select>

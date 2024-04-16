@@ -55,6 +55,8 @@ body {
     .filter-options {
         margin-top: 20px;
     }
+
+
 }
 
 .pagination-container {
@@ -108,4 +110,30 @@ body {
     font-size: 14px;
     line-height: 0.9;
     vertical-align: top;
+}
+
+
+.footer-div {
+    text-align: center;
+}
+
+.footer-div ul {
+    display: flex;
+    justify-content: space-between;
+    list-style-type: none;
+    padding: 32px 22px 0px;
+}
+
+.footer-div ul li {
+    display: inline-block;
+
+    font-weight: bolder;
+
+}
+
+@media (min-width: 1200px) {
+    .footer-div ul li {
+        padding: 9px 102px;
+        font-size: 25px;
+    }
 }
